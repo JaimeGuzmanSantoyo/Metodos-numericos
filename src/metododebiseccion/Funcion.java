@@ -1,14 +1,11 @@
 package metododebiseccion;
 
-import org.nfunk.jep.JEP;
+import org.nfunk.jep.JEP; //uso de las librerias extra
  
-/**
- *
- * @author Adrian
- */
+
 public class Funcion {
     
-    private String expresion = "";
+    private String expresion = ""; //se encarga de almacenar la funcion 
     
     
     public Funcion(String expresion){
@@ -17,15 +14,15 @@ public class Funcion {
     
     public double evaluar(double x){  
        JEP j = new JEP(); 
-       j.addStandardFunctions();
-       j.addStandardConstants();
-       j.addVariable("x", x);
+       j.addStandardFunctions(); //se va encarga de evaluar los valores en x 
+       j.addStandardConstants(); 
+       j.addVariable("x", x); //se evaluan las variables
        j.parseExpression(this.expresion);
        
         if (!j.hasError()) {
-            return j.getValue();
+            return j.getValue(); //sino ocurre un error con se retorna el valor para j
         } else {
-            return Double.NaN;
+            return Double.NaN; 
         }           
     }
     

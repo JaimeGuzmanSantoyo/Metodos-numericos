@@ -2,10 +2,7 @@ package metododebiseccion;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Adrian
- */
+ 
 public class Biseccion extends javax.swing.JFrame {
 
     /**
@@ -58,7 +55,7 @@ public class Biseccion extends javax.swing.JFrame {
         jLabel3.setText("Limite superior:");
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel4.setText("Tolerancia:");
+        jLabel4.setText("Delta");
 
         jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Raiz:");
@@ -177,17 +174,17 @@ public class Biseccion extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
         String funcion = textFuncion.getText();
-        double li, ls, to;
+        double li, ls, delta;
         
-        li = Double.parseDouble(infe.getText());
-        ls = Double.parseDouble(supe.getText());
-        to = Double.parseDouble(tol.getText());
+        li = Double.parseDouble(infe.getText());// se usa para almacenar el valor asignado en la casilla de Limite inferior
+        ls = Double.parseDouble(supe.getText());//se usa para almacenar el valor asignado en la casilla de Limite superior
+        delta = Double.parseDouble(tol.getText());//se usa para almacenar el valor asignado en la casilla de Delta
         
         Metodo metodo = new Metodo();
         
         metodo.setFuncion(funcion);
-        double raiz = metodo.biseccion(li, ls, to);
-        resultado.setText(raiz + "");
+        double raiz = metodo.biseccion(li, ls, delta);// en esta parte almacena los limites LI ,LS Y DELTA 
+        resultado.setText(raiz + ""); //esto es para mostrar raiz
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
